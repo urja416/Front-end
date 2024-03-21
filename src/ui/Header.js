@@ -136,7 +136,7 @@ const Header = () => {
         </Typography>
 
         <div className="flex items-center space-x-2">
-          <NavLink>
+          <NavLink to='/login'>
             <Button size="sm" variant="text">
               <span>Log In</span>
             </Button>
