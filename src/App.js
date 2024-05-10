@@ -1,32 +1,24 @@
-import React from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Home from './features/home/Home';
-import Contact from './features/Contact';
-import About from './features/About';
-import RootLayOut from './ui/RootLayOut';
-import NotFound from './ui/NotFound';
-import Detail from './features/home/Detail';
+import React from 'react'
+import { Route, Routes } from 'react-router'
+import RootLayOut from './components/RootLayOut'
+import About from './pages/About'
+import NotFound from './pages/NotFound'
+import HomePage from './pages/HomePage'
+
 
 const App = () => {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <RootLayOut />,
-      children: [
-        { index: 'true', element: <Home /> },
-        { path: 'product/detail/:id', element: <Detail /> },
-        { path: 'about', element: <About /> },
-        { path: 'contact', element: <Contact /> },
-        { path: '*', element: <NotFound /> },
+  return (
+    <Routes>
+      <Route path='/' element={<RootLayOut />} >
+        <Route index element={<HomePage />} />
+        <Route path='about' element={<About />} />
 
+        <Route path='*' element={<NotFound />} />
 
+      </Route>
 
-      ]
-    },
+    </Routes>
+  )
+}
 
-  ]);
-
-  return <RouterProvider router={router} />;
-};
-
-export default App;
+export default App
